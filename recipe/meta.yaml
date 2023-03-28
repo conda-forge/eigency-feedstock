@@ -1,5 +1,5 @@
 {% set name = "eigency" %}
-{% set version = "2.0.0" %}
+{% set version = "3.4.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,16 @@ package:
 
 source:
   url: https://github.com/wouterboomsma/eigency/archive/refs/tags/{{ version }}.tar.gz
-  sha256: fff953cc40e2ff658eebdaa4c337ebe869984b0556656126a1e1d2dd399c05e7
+  sha256: 0cf08d76f990ec839ca0557e37984cc6744c5082a1478c354552c8ebc6b04bd7
   patches:
-  - 0001-User-can-use-system-eigen.patch
+    - 0001-User-can-use-system-eigen.patch
 
 build:
   script_env:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -40,7 +40,7 @@ test:
 
 about:
   home: https://github.com/wouterboomsma/eigency
-  summary: 'Cython interface between the numpy arrays and the Matrix/Array classes of the Eigen C++ library'
+  summary: Cython interface between the numpy arrays and the Matrix/Array classes of the Eigen C++ library
   description: |
     Eigency is a Cython interface between Numpy arrays and Matrix/Array
     objects from the Eigen C++ library. It is intended to simplify the
