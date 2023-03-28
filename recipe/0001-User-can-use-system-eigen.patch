@@ -1,29 +1,18 @@
-From 1294baad4c31a6248853e62a003a7bc9972534ff Mon Sep 17 00:00:00 2001
-From: BORDEU Felipe <felipe.bordeu@safrangroup.com>
-Date: Thu, 7 Apr 2022 14:15:44 +0200
-Subject: [PATCH] User can use system eigen
-
----
- eigency/__init__.py |  7 +++++--
- setup.py            | 33 ++++++++++++++++++++++-----------
- 2 files changed, 27 insertions(+), 13 deletions(-)
-
 diff --git a/eigency/__init__.py b/eigency/__init__.py
-index d1d76c4..99680ff 100644
+index d1d76c4..4f3830b 100644
 --- a/eigency/__init__.py
 +++ b/eigency/__init__.py
-@@ -1,14 +1,17 @@
+@@ -1,14 +1,15 @@
  import os.path
  
  import numpy as np
 -from pkg_resources import resource_filename
- 
+-
 -__eigen_dir__ = resource_filename(__name__, "eigen")
-+
+ 
 +def get_eigency_eigen_dir():
 +    from pkg_resources import resource_filename
 +    return resource_filename(__name__, "eigen")
- 
  
  def get_includes(include_eigen=True):
      root = os.path.dirname(__file__)
@@ -33,19 +22,19 @@ index d1d76c4..99680ff 100644
          path.append(os.path.join(root, __eigen_dir__))
      return path
 diff --git a/setup.py b/setup.py
-index e605909..817f8e3 100644
+index 106c2ee..e2795ef 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -8,12 +8,19 @@ from setuptools.extension import Extension
+@@ -8,12 +8,17 @@ from setuptools.extension import Extension
  
  sys.path.append(".")
  
 -import eigency  # noqa: E402
- 
+-
  __package_name__ = "eigency"
 -__eigen_dir__ = eigency.__eigen_dir__
 -__eigen_lib_dir__ = join(basename(__eigen_dir__), "Eigen")
- 
+-
 +include_dirs = [np.get_include()]
 +if "EIGEN_INC" in os.environ:
 +    useSystemEigen = True
@@ -59,7 +48,7 @@ index e605909..817f8e3 100644
  # Not all users may have cython installed.  If they only want this as a means
  # to access the Eigen header files to compile their own C++ code, then they
  # may not have cython already installed.  Therefore, only require cython
-@@ -37,13 +44,13 @@ extensions = [
+@@ -37,13 +42,13 @@ extensions = [
      Extension(
          "eigency.conversions",
          ["eigency/conversions" + ext],
@@ -75,7 +64,7 @@ index e605909..817f8e3 100644
          language="c++",
      ),
  ]
-@@ -54,10 +61,14 @@ if USE_CYTHON:
+@@ -59,10 +64,14 @@ if USE_CYTHON:
  long_description = open("README.md").read()
  
  eigen_data_files = []
@@ -94,17 +83,14 @@ index e605909..817f8e3 100644
  
  setup(
      name=__package_name__,
-@@ -84,8 +95,8 @@ setup(
-     ext_modules=extensions,
-     packages=find_packages(),
+@@ -95,8 +104,8 @@ setup(
+         ],
+     ),
      include_package_data=True,
 -    package_data={__package_name__: ["*.h", "*.pxd", "*.pyx", join(__eigen_lib_dir__, "*")] + eigen_data_files},
 -    exclude_package_data={__package_name__: [join(__eigen_lib_dir__, "CMakeLists.txt")]},
 +    package_data={__package_name__: ["*.h", "*.pxd", "*.pyx"] + eigen_data_files},
 +    exclude_package_data=exclude_package_data,
-     python_requires=">=3.5",
+     python_requires=">=3.7",
      install_requires=["numpy"],
  )
--- 
-2.37.1.windows.1
-
