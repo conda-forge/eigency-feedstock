@@ -16,7 +16,7 @@ build:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -30,7 +30,7 @@ requirements:
     - numpy =1.21  # [py==38]
     - numpy =1.21  # [py==39]
     - numpy =1.21  # [py==310]
-    - numpy =1.23  # [py==311]
+    - numpy =1.23.4  # [py==311]
     - eigen >=3.2,<4
   run:
     - python
@@ -61,3 +61,4 @@ about:
 extra:
   recipe-maintainers:
     - fbordeu
+    - casenave
