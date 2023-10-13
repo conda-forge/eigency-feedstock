@@ -1,5 +1,5 @@
 {% set name = "eigency" %}
-{% set version = "3.4.0.0" %}
+{% set version = "3.4.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/wouterboomsma/eigency/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 0cf08d76f990ec839ca0557e37984cc6744c5082a1478c354552c8ebc6b04bd7
+  sha256: a428eae00fc0b2c116b9ce865f758d4d646d8dd8a07f03734af3e8030f4f4102
   patches:
     - 0001-User-can-use-system-eigen.patch
 
@@ -16,7 +16,7 @@ build:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
