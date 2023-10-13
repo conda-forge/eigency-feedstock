@@ -91,6 +91,6 @@ index 106c2ee..e2795ef 100644
 -    exclude_package_data={__package_name__: [join(__eigen_lib_dir__, "CMakeLists.txt")]},
 +    package_data={__package_name__: ["*.h", "*.pxd", "*.pyx"] + eigen_data_files},
 +    exclude_package_data=exclude_package_data,
-     python_requires=">=3.7",
+     python_requires=">=3.8",
      install_requires=["numpy"],
  )
