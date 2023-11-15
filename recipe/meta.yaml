@@ -27,10 +27,9 @@ requirements:
     - pip
     - setuptools
     - cython
-    - numpy =1.21  # [py==38]
-    - numpy =1.21  # [py==39]
-    - numpy =1.21  # [py==310]
-    - numpy =1.23.4  # [py==311]
+    - numpy =1.23  # [py==311]
+    - numpy >=1.26  # [py==312]
+    - numpy  # [py!=311 and py!=312]
     - eigen >=3.2,<4
   run:
     - python
