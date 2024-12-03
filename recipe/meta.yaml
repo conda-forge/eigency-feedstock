@@ -14,12 +14,13 @@ build:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ stdlib("c") }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -32,7 +33,6 @@ requirements:
     - eigen >=3.2,<4
   run:
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
