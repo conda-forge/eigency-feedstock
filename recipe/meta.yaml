@@ -1,5 +1,5 @@
 {% set name = "eigency" %}
-{% set version = "3.4.0.2" %}
+{% set version = "3.4.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/wouterboomsma/eigency/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 1bc4218c8f2f14d7d89db474ecd589765d158a7f4066a56bb09e448c3db159d3
+  sha256: 27a3509eefe8add96d5a9c8aec55b67afa40ef4f70eff818b4e5e04a43f151a8
   patches:
     - 0001-User-can-use-system-eigen.patch
 
@@ -21,6 +21,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
