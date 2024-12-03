@@ -20,6 +20,7 @@ requirements:
   build:
     - {{ stdlib("c") }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
