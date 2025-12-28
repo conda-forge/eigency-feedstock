@@ -14,7 +14,7 @@ build:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -27,9 +27,7 @@ requirements:
     - pip
     - setuptools
     - cython
-    - numpy =1.23  # [py==311]
-    - numpy >=1.26  # [py==312]
-    - numpy  # [py!=311 and py!=312]
+    - numpy
     - eigen >=3.2,<4
   run:
     - python
