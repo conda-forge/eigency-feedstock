@@ -12,9 +12,9 @@ source:
 build:
   script_env:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
-    - SETUPTOOLS_SCM_PRETEND_VERSION="%PKG_VERSION%"  # [win]
+    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
-    - SETUPTOOLS_SCM_PRETEND_VERSION="$PKG_VERSION"  # [unix]
+    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
   number: 6
 
