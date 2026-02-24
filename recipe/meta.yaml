@@ -6,8 +6,6 @@ package:
   version: {{ version }}
 
 source:
-  # url: https://pypi.org/packages/source/e/eigency/eigency-{{ version }}.tar.gz
-  # sha256: 691f9221152858bce0a398721f048cc10b869a179207b3384b4e6b8da25193dc
   url: https://github.com/wouterboomsma/eigency/archive/refs/tags/{{ version }}.tar.gz
   sha256: a08d1025c3eef8f48c77520259d89ba6bf7d9d348110648e1331ad86a737ec14
 
