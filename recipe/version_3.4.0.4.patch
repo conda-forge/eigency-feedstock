@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 1579d97..607ef97 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -10,7 +10,7 @@ build-backend = "setuptools.build_meta"
+
+ [project]
+ name = "eigency"
+-dynamic = ["version"]
++version = "3.2.1.0"
+ description = "Cython interface between the numpy arrays and the Matrix/Array classes of the Eigen C++ library"
+
+ readme  = "README.md"
