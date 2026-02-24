@@ -8,13 +8,15 @@ package:
 source:
   url: https://github.com/wouterboomsma/eigency/archive/refs/tags/{{ version }}.tar.gz
   sha256: a08d1025c3eef8f48c77520259d89ba6bf7d9d348110648e1331ad86a737ec14
+  patches:
+    - version_{{ version }}.patch
 
 build:
   script_env:
     - EIGEN_INC=%PREFIX%\Library\include\eigen3  # [win]
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 4
+  number: 5
 
 requirements:
   build:
