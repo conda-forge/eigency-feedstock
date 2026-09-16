@@ -17,7 +17,7 @@ build:
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
