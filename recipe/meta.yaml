@@ -30,7 +30,7 @@ requirements:
     - pip
     - setuptools >=60
     - setuptools-scm >=6.4.0
-    - cython
+    - cython<3.3
     - numpy
     - eigen =5.0.1
   run:
