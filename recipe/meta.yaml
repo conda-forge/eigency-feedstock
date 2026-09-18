@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/eigency-org/eigency/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 253a3bb927089e3dfe8e5a7764eec0f9646c9cd9ee641d2b6ba9c34dbcb45121
+  sha256: 764cc53d4776957ddbd0b975ca90a24103f65f0f8448ec26002197a917b753cc
 
 
 build:
