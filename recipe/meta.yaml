@@ -1,5 +1,5 @@
 {% set name = "eigency" %}
-{% set version = "5.0.1.0" %}
+{% set version = "5.0.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -17,7 +17,7 @@ build:
     - EIGEN_INC=${PREFIX}/include/eigen3  # [unix]
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [unix]
   script: {{ PYTHON }} -m pip install --no-deps . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
